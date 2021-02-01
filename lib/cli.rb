@@ -1,8 +1,8 @@
+require 'pry'
+
 class Cli
 
-
 def welcome
-    puts "Welcome, space explorer!"
     puts <<-'explorer'
       _..._
     .'     '.      _
@@ -22,18 +22,48 @@ def welcome
         `-._/._/
 explorer
     puts ""
-    puts "We are glad to have you on board!"
-    puts ""
-    puts ""
-    self.prompt_user
+    puts "Greetings, Space explorer!"
+    sleep(2)
+    puts "We are glad to have you aboard our spaceship"
+   self.user_selection
 end
 
-def prompt_user
-    sleep(2)
-    puts "What space galaxy would you like to learn about?"
-    puts "Please enter 1-9:"
-    input = gets.strip
-    #connect to scraper
+def user_selection
+    sleep(3)
+    puts ""
+    puts ""
+    puts "Please type in planet would you like to learn more about? "
+    puts <<-'DOC'
+        1. Mercury
+        2. Venus
+        3. Earth
+        4. Mars
+        5. Jupiter
+        6. Saturn
+        7. Uranus
+        8. Neptune
+    DOC
+    self.menu_options
 end
+
+def user_menu
+    input = gets.strip.downcase
+    
+end
+
+#def display_space
+    #call on space class for planets then index_with_each(1)
+    #puts "index and then either planet name"
+    #end
+
+    #def display_planet_info
+    #call on space class with index and place planet info
+    #end
+
+    #def exit
+    #options of giving another number or exiting program
+    #end
 
 end # end of class
+
+Cli.new.welcome
