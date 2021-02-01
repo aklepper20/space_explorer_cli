@@ -23,16 +23,16 @@ def welcome
 explorer
     puts ""
     puts "Greetings, Space explorer!"
-    sleep(2)
+    sleep(1)
     puts "We are glad to have you aboard our spaceship"
+    sleep(2)
    self.user_selection
 end
 
 def user_selection
-    sleep(3)
     puts ""
     puts ""
-    puts "Please type in planet would you like to learn more about? "
+    puts "Please type in planet would you like to learn more about?"
     puts <<-'DOC'
         1. Mercury
         2. Venus
@@ -43,12 +43,14 @@ def user_selection
         7. Uranus
         8. Neptune
     DOC
-    self.menu_options
+    self.user_menu
 end
 
 def user_menu
     input = gets.strip.downcase
-    
+    case input
+    when "mercury"
+        
 end
 
 #def display_space

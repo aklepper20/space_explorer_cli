@@ -5,11 +5,14 @@ class Space
 
     def initialize(name, info, fun_fact)
         @name = name
-        @info
-        @fun_fact
-        @@all << self
+        @fun_fact = fun_fact
+        save
     end
 
+    def self.save
+        @@all << self
+    end
+    
     def self.all
         @@all
     end
