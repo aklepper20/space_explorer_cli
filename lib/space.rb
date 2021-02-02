@@ -3,7 +3,7 @@ class Space
 
     @@all = []
 
-    def initialize(name, info, fun_fact)
+    def initialize(name=nil, info=nil, fun_fact=nil)
         @name = name
         @fun_fact = fun_fact
         save
