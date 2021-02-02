@@ -1,10 +1,13 @@
 class Space
-    attr_accessor :name, :info, :fun_fact
+    attr_accessor :info, :fun_fact
+    attr_reader :name
 
     @@all = []
 
-    def initialize( info=nil, fun_fact=nil)
+    def initialize(name, info, fun_fact)
+        @name = name
         @fun_fact = fun_fact
+        @info = info
         save
     end
 
@@ -16,7 +19,7 @@ class Space
         @@all
     end
 
-    def self.name
-        @name = ["mercury", "venus", "earth", "mars", "jupiter", "saturn", "neptune"]
+    def self.find_by_name(name)
+        self.all.detect{|p| p.name == name}
     end
 end # end of class

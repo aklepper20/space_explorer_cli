@@ -40,31 +40,29 @@ end
 def start
     puts "Please type in the planet you want to learn about."
     input = gets.strip.downcase
-   
-    if input.include?(p.name) 
-        self.info_or_fact 
+
+    if ["mercury", "venus", "earth", "mars", "jupiter", "saturn", "neptune"].include?(input) && Space.find_by_name(name)  #!!! see if the name entered matches the array in @name 
+       new_planet = Space.find_by_name(name)
+        self.info_or_fact(new_planet) 
+    elsif ["mercury", "venus", "earth", "mars", "jupiter", "saturn", "neptune"].include?(input)
+        new_planet = Scraper.new.get_page(input)
+        self.info_or_fact(new_planet)
     else
         puts "Houston, we have a problem. Type a planet again, explorer!"
         self.start
     end
 end
 
-binding.pry
-  
-#def info_or_fact
+#def info_or_fact(new_planet)  !!!it puts either the fact or info to the corresponding planet
     #puts "Explorer, would you like a fact or information on your chosen planet? Enter the number:"
-    #Space.all.each.with_index(1) do |p, i| 
-        #puts "#{i}.) #{p.fun_fact}
-    #end
     #input = gets.strip.downcase
-    #if input == "1" 
-        #{i}.) #{p.fun_fact}
-    #elsif input == "2"
-    ##{i}.) #{p.fun_fact}
-    #self.main_menu
-    #else
-    # puts "Are you speaking alien? Enter number again, explorer!
-    #end"
+    #if number == "1"
+    #puts #{self.fun_fact}
+     #elsif input == "2"
+    #puts #{self.info}
+    #else 
+    #puts "Are you speaking alien again, Explorer? Try again"
+    #end
 #end
 
 #def main_menu#
@@ -84,5 +82,5 @@ binding.pry
 #end
 end # end of class
 
-Cli.new.welcome
 
+Cli.new.welcome
