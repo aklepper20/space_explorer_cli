@@ -31,15 +31,31 @@ end
 
 def start
     puts "Please type in the planet you want to learn about."
+    puts  "- Mercury"
+    puts  "- Venus"
+    puts  "- Earth"
+    puts  "- Mars"
+    puts  "- Jupiter"
+    puts  "- Saturn"
+    puts  "- Neptune"
+
+    p.name = ["mercury", "venus", "earth", "mars", "jupiter", "saturn", "neptune"]
+
     input = gets.strip.downcase
-    Space.all.each do |p| 
-        puts "#{p.name}"
+    input !include?(p.name) ? self.info_or_fact : self.invalid_answer
+
+    def invalid_answer
+        puts "Houston, we have a problem. Type a planet again, explorer!"
+    end
+
+
+
     end
     input = gets.strip.downcase
     if input == p.name
         self.info_or_fact
     else
-        puts "Houston, we have a problem. Type a planet again, explorer!"
+        puts 
         self.start
     end
 end
