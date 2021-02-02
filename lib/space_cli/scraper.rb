@@ -1,4 +1,4 @@
-class Scraper
+class Scraper 
 
     def get_page(input)
         html = "https://www.sciencekids.co.nz/sciencefacts/planets/#{input}.html"
