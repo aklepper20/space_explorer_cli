@@ -1,6 +1,6 @@
 class Scraper
 
-    def get_page#(input)
+    def get_page(input)
         html = "https://www.sciencekids.co.nz/sciencefacts/planets/#{self.name}.html"
         planet = Nokogiri::HTML(open(html))
         info = planet.css(".style1 .style33")[0].text

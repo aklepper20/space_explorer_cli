@@ -3,8 +3,7 @@ class Space
 
     @@all = []
 
-    def initialize(name=nil, info=nil, fun_fact=nil)
-        @name = name
+    def initialize( info=nil, fun_fact=nil)
         @fun_fact = fun_fact
         save
     end
@@ -15,5 +14,9 @@ class Space
     
     def self.all
         @@all
+    end
+
+    def self.name
+        @name = ["mercury", "venus", "earth", "mars", "jupiter", "saturn", "neptune"]
     end
 end # end of class

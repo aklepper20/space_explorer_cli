@@ -26,11 +26,7 @@ explorer
     sleep(1)
     puts "We are glad to have you aboard our spaceship"
     sleep(2)
-   self.start
-end
-
-def start
-    puts "Please type in the planet you want to learn about."
+    
     puts  "- Mercury"
     puts  "- Venus"
     puts  "- Earth"
@@ -38,28 +34,23 @@ def start
     puts  "- Jupiter"
     puts  "- Saturn"
     puts  "- Neptune"
+   self.start
+end
 
-    p.name = ["mercury", "venus", "earth", "mars", "jupiter", "saturn", "neptune"]
-
+def start
+    puts "Please type in the planet you want to learn about."
     input = gets.strip.downcase
-    input !include?(p.name) ? self.info_or_fact : self.invalid_answer
-
-    def invalid_answer
-        puts "Houston, we have a problem. Type a planet again, explorer!"
-    end
-
-
-
-    end
-    input = gets.strip.downcase
-    if input == p.name
-        self.info_or_fact
+   
+    if input.include?(p.name) 
+        self.info_or_fact 
     else
-        puts 
+        puts "Houston, we have a problem. Type a planet again, explorer!"
         self.start
     end
 end
 
+binding.pry
+  
 #def info_or_fact
     #puts "Explorer, would you like a fact or information on your chosen planet? Enter the number:"
     #Space.all.each.with_index(1) do |p, i| 
@@ -76,21 +67,21 @@ end
     #end"
 #end
 
-def main_menu
-   puts "Would you like to see the list again? y or n"
-   input = gets.strip.downcase
-   if input == "y"
-    self.start
-   else
-    self.exit
-   end
-end
+#def main_menu#
+  # puts "Would you like to see the list again? y or n"
+   #input = gets.strip.downcase
+   #if input == "y"
+   # self.start
+   #else
+    #self.exit
+   #end
+#end
 
-def exit
-abort("Mission complete! Nice work, explorer!")
-end
+#def exit
+#abort("Mission complete! Nice work, explorer!")
+#end
 
-end
+#end
 end # end of class
 
 Cli.new.welcome
