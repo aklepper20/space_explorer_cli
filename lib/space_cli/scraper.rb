@@ -1,12 +1,19 @@
+require 'pry'
+require 'nokogiri'
+require 'open-uri'
+
 class Scraper 
 
-    def get_page(input)
-        html = "https://www.sciencekids.co.nz/sciencefacts/planets/#{input}.html"
-        planet = Nokogiri::HTML(open(html))
-        info = planet.css(".style1 .style33")[0].text
-        fun_fact = planet.css(".style1 .style33")[1].text
-        Space.new(info, fun_fact)
-     end
-           
-end #end of class
+    def self.scrape(input)
+      doc =  Nokogiri::HTML(open("https://www.sciencekids.co.nz/sciencefacts/planets/#{input}.html")).css('.style1')
+    
+   
+        self.doc.each do |el| 
+            info = el.css(".style1 .style33")[0].text.strip
+            fun_fact = el.css(".style1 .style33")[1].text.strip
+            Space.new(info, fun_fact)
+        end
+    end
+end 
+
 
