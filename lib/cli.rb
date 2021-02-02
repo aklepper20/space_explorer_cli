@@ -29,43 +29,39 @@ explorer
    self.user_selection
 end
 
-def user_selection
-    puts ""
-    puts ""
-    puts "Please type in planet would you like to learn more about?"
-    puts <<-'DOC'
-        1. Mercury
-        2. Venus
-        3. Earth
-        4. Mars
-        5. Jupiter
-        6. Saturn
-        7. Uranus
-        8. Neptune
-    DOC
-    self.user_menu
-end
-
 def user_menu
+    puts "Please type in planet would you like to learn more about?" 
+    Space.all.each.with_index(1) {|p, i| puts "#{i}.) #{p.name}"}
     input = gets.strip.downcase
-    case input
-    when "mercury"
-        
+    if input == self.list_planets
+        self.display_info_fact
+    else
+        puts "Seems like you're a little lost, explorer! Type the planet again!"
+        self.user_menu
+    end
 end
 
-#def display_space
-    #call on space class for planets then index_with_each(1)
-    #puts "index and then either planet name"
-    #end
+ 
+def display_info_fact
+    puts "Please enter 1. for a fun fact, or 2. for the planet's information!"
+    input == gets.strip.downcase 
+    if input == "1"
+        Space.all.each.with_index(1) {|p, i| puts "#{i}.) #{p.fun_fact}"}
+    elsif input == "2"
+        Space.all.each.with_index(1) {|p, i| puts "#{i}.) #{p.info}"}
+    else
 
-    #def display_planet_info
-    #call on space class with index and place planet info
-    #end
+    end
+end
 
-    #def exit
-    #options of giving another number or exiting program
-    #end
+def main_menu
 
+end
+
+def exit
+
+end
 end # end of class
 
 Cli.new.welcome
+
