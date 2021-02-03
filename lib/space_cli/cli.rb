@@ -49,7 +49,6 @@ def start
         new_planet = self.info_or_fact(input) 
     elsif ["mercury", "venus", "earth", "mars", "jupiter", "saturn", "neptune"].include?(input)
         new_planet = Scraper.new.scrape(input)
-        binding.pry
         self.info_or_fact(new_planet)
     else
         puts "Houston, we have a problem. Type a planet in again, Explorer!"
@@ -67,7 +66,7 @@ def info_or_fact(new_planet)
         puts "#{new_planet.info}"
        
     else
-    puts "Are you speaking alien again, Explorer? Try again"
+    puts "Are you speaking alien again, Explorer? Try again."
     end
     self.main_menu
 end
